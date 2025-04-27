@@ -2,14 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "server.js",
+        "src": "Server/server.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
         "src": "/api/telegram",
-        "dest": "/server.js"
+        "dest": "Server/server.js"
       }
     ]
   }
