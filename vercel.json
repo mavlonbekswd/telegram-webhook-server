@@ -9,7 +9,7 @@
     "routes": [
       {
         "src": "/api/telegram",
-        "dest": "server.js"
+        "dest": "/server.js"
       }
     ]
   }
