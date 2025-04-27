@@ -5,12 +5,12 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = import.meta.env.PORT || 3000;
 
 app.use(express.json());
 
-const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+const TELEGRAM_BOT_TOKEN = import.meta.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = import.meta.env.TELEGRAM_CHAT_ID;
 const SANITY_PROJECT_ID = "5a03o7rz";
 const SANITY_DATASET = "production";
 
