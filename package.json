@@ -1,14 +1,18 @@
 {
-    "name": "telegram-webhook-server",
-    "version": "1.0.0",
-    "description": "Server for sending posts to Telegram from Sanity",
-    "main": "server.js",
-    "scripts": {
-      "start": "node server.js"
-    },
-    "dependencies": {
-      "axios": "^1.6.0",
-      "express": "^4.18.2",
-      "dotenv": "^16.3.1"
-    }
-  }
+  "name": "telegram-webhook-server",
+  "version": "1.0.0",
+  "description": "Server for sending posts to Telegram from Sanity",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^1.9.0",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
