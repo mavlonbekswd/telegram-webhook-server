@@ -14,9 +14,6 @@ const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 const SANITY_PROJECT_ID = "5a03o7rz";
 const SANITY_DATASET = "production";
 
-// Agar kerak bo'lsa, sanityClient yoki readToken bilan authorized fetch qilamiz (hozir oddiy public query yozamiz)
-
-// Sanity'dan to'liq contentni olish uchun so'rov:
 const fetchPostFromSanity = async (documentId) => {
   try {
     const query = `*[_id == "${documentId}"][0]{
@@ -36,7 +33,6 @@ const fetchPostFromSanity = async (documentId) => {
   }
 };
 
-// Telegramga yuborish
 const sendPostToTelegram = async (post) => {
   try {
     const text = `
@@ -49,7 +45,6 @@ ${post.uzContent ? (Array.isArray(post.uzContent) ? post.uzContent.map(block => 
 
     const telegramApiUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 
-    // Agar rasm bo'lsa rasm bilan yuboramiz
     if (post.mainImageUrl) {
       await axios.post(`${telegramApiUrl}/sendPhoto`, {
         chat_id: TELEGRAM_CHAT_ID,
@@ -58,7 +53,6 @@ ${post.uzContent ? (Array.isArray(post.uzContent) ? post.uzContent.map(block => 
         parse_mode: "HTML",
       });
     } else {
-      // Faqat text yuboramiz
       await axios.post(`${telegramApiUrl}/sendMessage`, {
         chat_id: TELEGRAM_CHAT_ID,
         text,
@@ -70,7 +64,6 @@ ${post.uzContent ? (Array.isArray(post.uzContent) ? post.uzContent.map(block => 
   }
 };
 
-// Endi webhook qabul qilamiz:
 app.post("/api/telegram", async (req, res) => {
   const { body } = req;
 
@@ -90,7 +83,6 @@ app.post("/api/telegram", async (req, res) => {
   }
 });
 
-// Serverni ishga tushuramiz
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
